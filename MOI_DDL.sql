@@ -20,7 +20,9 @@ CREATE TABLE student (
     github VARCHAR(128),
     phone_number CHAR(11),
     area VARCHAR(24),						-- 분야(직무)를 말함
-    hashtag VARCHAR(40)
+    hashtag VARCHAR(40),
+    
+    PRIMARY KEY(id)
 );
 
 -- 프로젝트 게시물
@@ -32,7 +34,9 @@ CREATE TABLE project (
     writer VARCHAR(12) NOT NULL,			-- 작성자이긴한데 일부로 FOREIGN KEY로 안 했어. student랑 project랑 다대다 구조인데 FOREIGN KEY가 project 쪽에 있으면 구조가 망가질 것 같아서.
     personnel VARCHAR(40) NOT NULL,			-- 인원인데 프론트엔드 4명 백엔드 3명이면 프론트엔드4|백엔드3| 이런식으로 저장하자. (좋은 생각있으면 알려줘 딱히 좋은 생각이 안 나)
     hashtag VARCHAR(40),					-- 해시태그인데 #java, #springboot, #django, #flask 라면 #java#springboot#django#flask 로 저장하자.
-    profile VARCHAR(128)
+    profile VARCHAR(128),
+    
+    PRIMARY KEY(id)
 );
 
 -- 프로젝트 참가현황 ( student >-< project )
@@ -44,5 +48,7 @@ CREATE TABLE participation (
     isPassed BOOLEAN DEFAULT false,
     
     FOREIGN KEY (student_id) REFERENCES student(id) ON UPDATE CASCADE,
-    FOREIGN KEY (project_id) REFERENCES project(id) ON UPDATE CASCADE
+    FOREIGN KEY (project_id) REFERENCES project(id) ON UPDATE CASCADE,
+    
+    PRIMARY KEY(student_id, project_id)
 );
