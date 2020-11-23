@@ -14,7 +14,7 @@ CREATE TABLE student (
 	id VARCHAR(16) NOT NULL,
     password VARCHAR(128) NOT NULL,
     name VARCHAR(12) NOT NULL,
-    birthday CHAR(8) NOT NULL,
+    birthday DATE NOT NULL,
     school CHAR(4) NOT NULL,				-- 대덕, 광주, 대구 로 하자. ENUM으로 안 한 이유는 ENUM을 사용하지 말아야 하는 이유 N가지? 때문에 안 쓰게 됐는데 쓸 거면 써도 돼
     profile VARCHAR(128),
     github VARCHAR(128),
