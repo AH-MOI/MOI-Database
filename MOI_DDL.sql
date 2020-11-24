@@ -47,7 +47,7 @@ CREATE TABLE participation (
     project_id INT(11) NOT NULL,
     
     student_area VARCHAR(24) NOT NULL,		-- student 테이블의 area 컬럼을 말하는 게 아니라 프로젝트 신청할 때 사용한 분야를 말함
-    isPassed BOOLEAN DEFAULT false,
+    is_passed BOOLEAN DEFAULT false,
     
     FOREIGN KEY (student_id) REFERENCES student(id) ON UPDATE CASCADE,
     FOREIGN KEY (project_id) REFERENCES project(id) ON UPDATE CASCADE,
