@@ -22,7 +22,7 @@ CREATE TABLE student (
     area VARCHAR(24),						-- 분야(직무)를 말함
     hashtag VARCHAR(40),
     
-    PRIMARY KEY(id)
+    PRIMARY KEY (id)
 );
 
 -- 프로젝트 게시물
@@ -38,11 +38,13 @@ CREATE TABLE project (
     
     FOREIGN KEY (writer) REFERENCES student(id) ON UPDATE CASCADE,
     
-    PRIMARY KEY(id)
+    PRIMARY KEY (id)
 );
 
 -- 프로젝트 참가현황 ( student >-< project )
 CREATE TABLE participation (
+	id INT(11) AUTO_INCREMENT,
+
 	student_id VARCHAR(16) NOT NULL,
     project_id INT(11) NOT NULL,
     
@@ -52,5 +54,5 @@ CREATE TABLE participation (
     FOREIGN KEY (student_id) REFERENCES student(id) ON UPDATE CASCADE,
     FOREIGN KEY (project_id) REFERENCES project(id) ON UPDATE CASCADE,
     
-    PRIMARY KEY(student_id, project_id)
+    PRIMARY KEY (id)
 );
