@@ -1,2 +1,1 @@
-# MOI-Database
-MOI 프로젝트 DDL (with MySQL)
+![MySQL Logo](./img/MySQL.jpg)
