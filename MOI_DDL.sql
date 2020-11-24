@@ -11,7 +11,7 @@ DROP TABLE IF EXISTS student;
 
 -- 학생들
 CREATE TABLE student (
-	id VARCHAR(16) NOT NULL,
+	id VARCHAR(24) NOT NULL,
     password VARCHAR(128) NOT NULL,
     name VARCHAR(12) NOT NULL,
     birthday DATE NOT NULL,
@@ -21,6 +21,7 @@ CREATE TABLE student (
     phone_number CHAR(11),
     area VARCHAR(24),						-- 분야(직무)를 말함
     hashtag VARCHAR(40),
+    star DECIMAL(2, 1),
     
     PRIMARY KEY (id)
 );
@@ -32,7 +33,7 @@ CREATE TABLE project (
     content VARCHAR(400) NOT NULL,
     closing_date DATE NOT NULL,
     writer VARCHAR(16) NOT NULL,
-    personnel VARCHAR(40) NOT NULL,			-- 인원인데 프론트엔드 4명 백엔드 3명이면 프론트엔드4|백엔드3| 이런식으로 저장하자. (좋은 생각있으면 알려줘 딱히 좋은 생각이 안 나)
+    personnel VARCHAR(40) NOT NULL,			-- 인원인데 프론트엔드 4명 백엔드 3명이면 프론트엔드4|백엔드3 이런식으로 저장하자. (좋은 생각있으면 알려줘 딱히 좋은 생각이 안 나)
     hashtag VARCHAR(40),					-- 해시태그인데 #java, #springboot, #django, #flask 라면 #java#springboot#django#flask 로 저장하자.
     profile VARCHAR(128),
     
